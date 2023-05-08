@@ -3,9 +3,11 @@ const http = require('http');
 const server = http.createServer((req, res) => {
     if (req.url === '/') {
         // req.url tells us what address/endpoint the client is requesting
+        console.log('homepage accessed.');
         res.end('Welcome to my homepage');
     }
     else if (req.url === '/about') {
+        console.log('about page accessed.');
         res.end('Here is our short history');
     }
     else {
@@ -15,6 +17,9 @@ const server = http.createServer((req, res) => {
         <a href="/">Back home</a>
         `)
     }
+
 })
 
-server.listen(5000);
+server.listen(5000, () => {
+    console.log(`Listening on port : 5000...`);
+});
